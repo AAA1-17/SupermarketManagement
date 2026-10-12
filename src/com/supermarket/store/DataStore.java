@@ -92,7 +92,24 @@ public final class DataStore {
         return logs;
     }
 
+    /**
+     * 是否没有任何业务数据（用于判断首次启动）。
+     * 日志每次登录都会新增，不能作为首次启动的判断依据，故不参与判定。
+     */
+    public boolean isEmpty() {
+        return cashiers.isEmpty() && products.isEmpty() && types.isEmpty() && orders.isEmpty();
+    }
+
     // ==================== 保存 ====================
+
+    /** 保存全部数据 */
+    public void saveAll() {
+        saveCashiers();
+        saveProducts();
+        saveTypes();
+        saveOrders();
+        saveLogs();
+    }
 
     public void saveCashiers() {
         List<String> lines = new ArrayList<>();

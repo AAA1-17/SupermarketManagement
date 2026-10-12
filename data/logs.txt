@@ -1,0 +1,8 @@
+# id,title,description,date,success,logType
+L0001,系统初始化,首次启动，已自动导入示例数据,2026-10-12 16:11:11,true,SYSTEM
+L0002,新增收银员,导入示例收银员 5 名,2026-10-12 16:11:11,true,CASHIER
+L0003,新增商品,导入示例商品 6 件,2026-10-12 16:11:11,true,PRODUCT
+L0004,系统登录成功,用户名：admin,2026-10-12 16:11:11,true,LOGIN
+L0005,系统登录成功,用户名：admin,2026-10-12 16:11:26,true,LOGIN
+L0006,系统登录成功,用户名：admin,2026-10-12 16:14:50,true,LOGIN
+L0007,系统登录成功,用户名：admin,2026-10-12 16:15:16,true,LOGIN

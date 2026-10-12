@@ -374,8 +374,8 @@ public class ConsoleApp {
             System.out.println("暂无收银员数据！");
             return;
         }
-        System.out.printf("%-6s %-10s %-8s %-3s %-4s %-13s %-10s %s%n",
-                "ID", "账号", "姓名", "性别", "年龄", "联系方式", "地址", "密码");
+        System.out.printf("%-6s %-12s %-10s %-3s %-4s %-10s %-13s %s%n",
+                "ID", "账号", "密码", "性别", "年龄", "姓名", "联系方式", "地址");
         for (Cashier cashier : cashiers) {
             System.out.println(cashier);
         }

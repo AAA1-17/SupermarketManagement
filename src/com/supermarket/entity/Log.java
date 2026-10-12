@@ -3,7 +3,9 @@ package com.supermarket.entity;
 import com.supermarket.enums.LogType;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 日志实体
@@ -63,5 +65,35 @@ public class Log {
         String type = logType == null ? "" : logType.getLabel();
         return String.format("%-8s %-19s %-10s %-4s %-18s %s",
                 id, time, type, success ? "成功" : "失败", title, description);
+    }
+
+    // ==================== 测试用例 ====================
+
+    /** 直接运行本方法可单独测试日志实体 */
+    public static void main(String[] args) {
+        List<Log> logs = new ArrayList<>();
+        logs.add(new Log("L0001", "系统登录成功", "用户名：admin", new Date(), true, LogType.LOGIN));
+        logs.add(new Log("L0002", "新增收银员", "新增收银员：端木玉（92930120027）", new Date(), true, LogType.CASHIER));
+        logs.add(new Log("L0003", "新增商品", "新增商品：可乐（P0001）", new Date(), true, LogType.PRODUCT));
+        logs.add(new Log("L0004", "新增订单失败", "库存不足：可乐，现有 0", new Date(), false, LogType.ORDER));
+        logs.add(new Log("L0005", "移除订单", "移除订单：O0001", new Date(), true, LogType.ORDER));
+
+        System.out.println("------------------- 日志列表 -------------------");
+        System.out.printf("%-8s %-19s %-10s %-4s %-18s %s%n",
+                "编号", "时间", "类型", "结果", "概要", "详情");
+        for (Log log : logs) {
+            System.out.println(log);
+        }
+        System.out.println("------------------- 日志列表 -------------------");
+        System.out.println("共计" + logs.size() + "条数据。");
+
+        // 顺带统计成功与失败的条数
+        int successCount = 0;
+        for (Log log : logs) {
+            if (log.isSuccess()) {
+                successCount++;
+            }
+        }
+        System.out.println("成功：" + successCount + " 条，失败：" + (logs.size() - successCount) + " 条。");
     }
 }
